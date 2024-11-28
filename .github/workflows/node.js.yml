@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -22,47 +21,36 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
+
+    - name: Install client dependencies
       run: |
-        cd server
+        cd client
         npm install
-        cd ../client
-        npm install
-        
+
     - name: Build ReactJS app
       run: |
         cd client
         npm run build
-   
+
     - name: scp Client APP
       uses: c0c1/scp-action@v1.0
       with:
-        # Source dir to deploy
         src: "client/dist"
-          # SSH address
         host: ${{ secrets.SERVER_HOST }}
-          # Remote dir path
         remote: "/var/www/html"
-          # SSH Port
-          # SSH User name
         user: ${{ secrets.SERVER_USERNAME }}
-          # Private key
         key: ${{ secrets.SERVER_SSH_KEY }}
-   
+
     - name: scp Server APP
       uses: c0c1/scp-action@v1.0
       with:
-        # Source dir to deploy
         src: "server"
-          # SSH address
         host: ${{ secrets.SERVER_HOST }}
-          # Remote dir path
         remote: "/var/www/html/server"
-          # SSH Port
-          # SSH User name
         user: ${{ secrets.SERVER_USERNAME }}
-          # Private key
-        key: ${{ secrets.SERVER_SSH_KEY }}     
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        excludes: "node_modules"
+
     - name: ssh pipelines
       uses: cross-the-world/ssh-pipeline@master
       env:
@@ -74,4 +62,6 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         connect_timeout: 10s
         script: |
+          cd /var/www/html/server/server
+          npm install --production
           service caddy restart
