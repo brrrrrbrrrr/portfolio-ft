@@ -28,12 +28,7 @@ jobs:
         npm install
         cd ../client
         npm install
-
-    - name: Build NestJS app
-      run: |
-        cd server
-        node app.js
-
+        
     - name: Build ReactJS app
       run: |
         cd client
