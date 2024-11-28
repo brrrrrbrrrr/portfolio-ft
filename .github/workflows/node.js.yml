@@ -33,7 +33,7 @@ jobs:
       run: |
         cd client
         npm run build
-        
+   
     - name: scp Client APP
       uses: c0c1/scp-action@v1.0
       with:
@@ -48,7 +48,21 @@ jobs:
         user: ${{ secrets.SERVER_USERNAME }}
           # Private key
         key: ${{ secrets.SERVER_SSH_KEY }}
-        
+   
+    - name: scp Server APP
+      uses: c0c1/scp-action@v1.0
+      with:
+        # Source dir to deploy
+        src: "server"
+          # SSH address
+        host: ${{ secrets.SERVER_HOST }}
+          # Remote dir path
+        remote: "/var/www/html/server"
+          # SSH Port
+          # SSH User name
+        user: ${{ secrets.SERVER_USERNAME }}
+          # Private key
+        key: ${{ secrets.SERVER_SSH_KEY }}     
     - name: ssh pipelines
       uses: cross-the-world/ssh-pipeline@master
       env:
