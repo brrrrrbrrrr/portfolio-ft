@@ -42,7 +42,7 @@ jobs:
       - name: Upload files using SCP
         uses: appleboy/scp-action@v0.1.5
         with:
-          host: ${{ secrets.SCP_HOST }}      # Adresse du serveur distant
+          host: ${{ secrets.SERVER_HOST }}      # Adresse du serveur distant
           username: ${{  secrets.SERVER_USERNAME}}  # Nom d'utilisateur pour SSH
           key: ${{  secrets.SERVER_SSH_KEY }} # Clé privée SSH
           source: "client/dist/"                   # Chemin local des fichiers
