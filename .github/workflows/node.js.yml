@@ -39,14 +39,14 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add ~/.ssh/id_rsa
 
-      - name: scp Client APP
-        uses: c0c1/scp-action@v1.0
+      - name: Upload files using SCP
+        uses: appleboy/scp-action@v0.1.5
         with:
-          src: 'client/dist'
-          host: ${{ secrets.SERVER_HOST }}
-          remote: '/var/www/html'
-          user: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          host: ${{ secrets.SCP_HOST }}      # Adresse du serveur distant
+          username: ${{  secrets.SERVER_USERNAME}}  # Nom d'utilisateur pour SSH
+          key: ${{  secrets.SERVER_SSH_KEY }} # Clé privée SSH
+          source: "client/dist/"                   # Chemin local des fichiers
+          target: "/var/www/html/"            # Chemin distant où envoyer les fichiers
 
       - name: scp Server APP
         uses: c0c1/scp-action@v1.0
