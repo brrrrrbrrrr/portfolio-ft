@@ -1,24 +1,24 @@
-import accueil from "../../assets/videos/accueil.mp4";
-import candidat from "../../assets/videos/candidat.mp4";
-import consultant from "../../assets/videos/consultant.mp4";
-import entreprise from "../../assets/videos/entreprise.mp4";
-import recruteur from "../../assets/videos/recruteur.mp4";
-import candidatLike from "../../assets/videos/candidat-like.mp4";
+import accueil from '../../assets/videos/accueil.mp4';
+import candidat from '../../assets/videos/candidat.mp4';
+import consultant from '../../assets/videos/consultant.mp4';
+import entreprise from '../../assets/videos/entreprise.mp4';
+import recruteur from '../../assets/videos/recruteur.mp4';
+import candidatLike from '../../assets/videos/candidat-like.mp4';
 
 const videos3 = [
-  { id: 1, name: "Accueil", video: accueil },
-  { id: 2, name: "Candidat.e", video: candidat },
-  { id: 3, name: "Entreprise", video: entreprise },
-  { id: 4, name: "Recruteur.euse", video: recruteur },
-  { id: 5, name: "Consultant.e", video: consultant },
-  { id: 6, name: "Candidat.e-Like", video: candidatLike },
+  { id: 1, name: 'Accueil', video: accueil },
+  { id: 2, name: 'Candidat.e', video: candidat },
+  { id: 3, name: 'Entreprise', video: entreprise },
+  { id: 4, name: 'Recruteur.euse', video: recruteur },
+  { id: 5, name: 'Consultant.e', video: consultant },
+  { id: 6, name: 'Candidat.e-Like', video: candidatLike },
 ];
 
 const ProjectsArray = [
   {
     id: 1,
-    name: "bass music",
-    theme: "Musique",
+    name: 'bass music',
+    theme: 'Musique',
     description: (
       <p>
         Mon premier site est un projet dans lequel j'ai présenté différents
@@ -28,14 +28,14 @@ const ProjectsArray = [
         musique sous-estimés et de partager mon amour pour eux.
       </p>
     ),
-    hardSkillName: ["HTML5 ", "CSS3 ", "Git "],
-    link: "https://brrrrrbrrrr.github.io/Project_1-Wild-Code-School/",
-    img: "",
+    hardSkillName: ['HTML5 ', 'CSS3 ', 'Git '],
+    link: 'https://brrrrrbrrrr.github.io/Project_1-Wild-Code-School/',
+    img: '',
   },
   {
     id: 2,
-    name: "feel motion",
-    theme: "Film",
+    name: 'feel motion',
+    theme: 'Film',
     description: (
       <p>
         Nous avons travaillé en équipe sur un projet qui impliquait
@@ -45,14 +45,14 @@ const ProjectsArray = [
         interactive pour une expérience utilisateur optimale.
       </p>
     ),
-    hardSkillName: ["React ", "Git ", "Postman "],
-    link: "https://harmonious-tarsier-de5f7a.netlify.app/",
-    img: "",
+    hardSkillName: ['React ', 'Git ', 'Postman '],
+    link: 'https://harmonious-tarsier-de5f7a.netlify.app/',
+    img: '',
   },
   {
     id: 3,
-    name: "externatic",
-    theme: "Recrutement",
+    name: 'externatic',
+    theme: 'Recrutement',
     description: (
       <p>
         J'ai travailler avec une équipe sur un projet visant à créer un site de
@@ -65,9 +65,9 @@ const ProjectsArray = [
         suis ravi de voir le produit final en action.
       </p>
     ),
-    hardSkillName: ["React ", "Express", "MySQL "],
-    link: "videos",
-    img: "",
+    hardSkillName: ['React ', 'Express', 'MySQL '],
+    link: 'videos',
+    img: '',
     videos: videos3,
   },
 ];
