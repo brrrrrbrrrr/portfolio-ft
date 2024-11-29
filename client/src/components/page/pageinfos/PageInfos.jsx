@@ -1,12 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from "react";
-import "./PageInfos.css";
-import { Outlet } from "react-router-dom";
+import './PageInfos.css';
+import WelcomeTypeWriter from '../../welcome/WelcomeTypeWriter';
 
 function PageInfos() {
   return (
-    <div className="page-infos-container">
-      <Outlet />
+    <div className='page-infos-container'>
+      <WelcomeTypeWriter />
     </div>
   );
 }
