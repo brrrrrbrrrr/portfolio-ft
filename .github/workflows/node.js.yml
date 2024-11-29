@@ -31,6 +31,14 @@ jobs:
           cd client
           npm run build
 
+      - name: Set up SSH agent
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          eval $(ssh-agent -s)
+          ssh-add ~/.ssh/id_rsa
+
       - name: scp Client APP
         uses: c0c1/scp-action@v1.0
         with:
